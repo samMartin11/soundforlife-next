@@ -39,13 +39,19 @@ export default async function CityPage({ params }: Props) {
     notFound()
   }
 
-  redirect(`/${city.slug}`)
+  // redirect(`/${city.slug}`)
+   return (
+    <main>
+      <h1>Hearing Aid Centre in {city!.name}</h1>
+      <p>{city!.name}, {city!.state}</p>
+    </main>
+  )
 }
 
 function findCityBySlug(slug: string) {
   return cities.find(
     (item) =>
-      item.slug === slug ||
-      item.slug === slug.replace('hearing-aid-centre-', 'hearing-aid-centres-')
+      item.slug === slug 
+      // item.slug === slug.replace('hearing-aid-centre-', 'hearing-aid-centres-')
   )
 }

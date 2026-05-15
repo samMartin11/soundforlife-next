@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.soundforlife.in'),
@@ -19,10 +22,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        {/* TODO: Replace with your Header component */}
-        <main>{children}</main>
-        {/* TODO: Replace with your Footer component */}
+      <body className='site-wrapper'>
+        <Header/>
+        <main className='main-content'>
+          {children}
+        </main>
+        <Footer/>
       </body>
     </html>
   )

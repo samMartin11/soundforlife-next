@@ -37,7 +37,7 @@ export function generateCityMetadata(
     title: `Hearing Aid Centre in ${name}`,
     description: `SFL Hearing Solutions in ${name}, ${state}. Free hearing test, expert audiologists, Signia & Phonak hearing aids.`,
     alternates: {
-      canonical: `https://www.soundforlife.in/${slug}`,
+      canonical: `https://www.soundforlife.in/hearing-aid-centres/${slug}`,
     },
   }
 }
