@@ -15,18 +15,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
 
           {/* LEFT SECTION */}
-          <div>
-
+          <div className="flex flex-col gap-5 text-gray-400">
+            <Link href="#" className="hover:text-white transition" >QuickLink1</Link>
+            <Link href="#" className="hover:text-white transition" >QuickLink2</Link>
+            <Link href="#" className="hover:text-white transition" >QuickLink3</Link>
             {/* Logo */}
-            <div className="flex items-center gap-3 mb-6">
+           
 
-              <Image
+              {/* <Image
                 src="/logo.png"
                 alt="sound-for-life-logo"
                 width={140}
                 height={80}
                 priority
-               />
+               /> */}
 
               {/* <div>
                 <h3 className="text-3xl font-bold text-white">
@@ -38,15 +40,15 @@ export default function Footer() {
                 </p>
               </div> */}
 
-            </div>
+            
 
             {/* Description */}
-            <p className="text-gray-400 leading-8 max-w-md">
+            {/* <p className="text-gray-400 leading-8 max-w-md">
               India's largest multi-brand, multi-level chain of
               hearing aid clinics. PAN India presence with certified
               audiologists. 10+ years of giving people their lives
               back, one conversation at a time.
-            </p>
+            </p> */}
 
           </div>
 
