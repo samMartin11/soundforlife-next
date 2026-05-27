@@ -1,115 +1,65 @@
 @import "tailwindcss";
 
-/* ───────────────────────────────────────────────────────────
-   Root Variables
-─────────────────────────────────────────────────────────── */
-
+/* ── CSS Variables ─────────────────────────────────────────── */
 :root {
-  --color-primary: #2e7d32;
-  --color-primary-dark: #1b5e20;
-  --color-primary-light: #4caf50;
+  --color-primary:      #F39200;
+  --color-primary-dark: #d97700;
+  --color-primary-light:#fbbf24;
 
-  --color-accent: #1565c0;
+  --color-navy:         #0B1724;
+  --color-navy-light:   #1a2e44;
 
-  --color-text: #111827;
-  --color-muted: #6b7280;
+  --color-text:         #1a1a2e;
+  --color-muted:        #6b7280;
 
-  --color-bg: #ffffff;
-  --color-bg-soft: #f9fafb;
+  --color-bg:           #ffffff;
+  --color-bg-soft:      #f8f5f1;
 
-  --color-border: #e5e7eb;
+  --color-border:       #e8e2db;
+
+  /* Header height = offer bar (~38px) + nav (72px) */
+  --header-height: 110px;
 }
 
-/* ───────────────────────────────────────────────────────────
-   Base Reset
-─────────────────────────────────────────────────────────── */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ── Base Reset ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-}
-
-html,
-body {
-  min-height: 100%;
   overflow-x: hidden;
 }
 
 body {
   font-family: "Inter", "Segoe UI", sans-serif;
-
   color: var(--color-text);
   background-color: var(--color-bg);
-
   line-height: 1.6;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ───────────────────────────────────────────────────────────
-   Typography
-─────────────────────────────────────────────────────────── */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* ── Typography base ───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: var(--color-text);
-
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
+h1 { font-size: clamp(2rem, 4.5vw, 3.6rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); }
+h3 { font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
+p  { color: var(--color-muted); line-height: 1.75; }
+a  { color: inherit; text-decoration: none; }
+img, video { max-width: 100%; display: block; }
 
-h1 {
-  font-size: clamp(2rem, 4vw, 3.8rem);
-}
-
-h2 {
-  font-size: clamp(1.6rem, 3vw, 2.8rem);
-}
-
-h3 {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-}
-
-p {
-  color: var(--color-muted);
-  line-height: 1.75;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img,
-video {
-  max-width: 100%;
-  display: block;
-}
-
-/* ───────────────────────────────────────────────────────────
-   Layout
-─────────────────────────────────────────────────────────── */
-
+/* ── Global layout ─────────────────────────────────────────── */
 .site-wrapper {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
 }
@@ -117,17 +67,7 @@ video {
 .main-content {
   flex: 1;
   width: 100%;
-
-  padding-top: 122px;
-}
-
-.container {
-  width: 100%;
-  max-width: 1280px;
-
-  margin-inline: auto;
-
-  padding-inline: clamp(1rem, 3vw, 2rem);
+  padding-top: var(--header-height);
 }
 
 .page-wrapper {
@@ -135,373 +75,35 @@ video {
   overflow-x: hidden;
 }
 
-.page-content {
-  width: 100%;
-  max-width: 1280px;
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--color-bg-soft); }
+::-webkit-scrollbar-thumb  { background: var(--color-border); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }
+::selection { background-color: var(--color-primary-light); color: #fff; }
 
-  margin-inline: auto;
+/* ── Details/summary reset ─────────────────────────────────── */
+details summary { list-style: none; }
+details summary::-webkit-details-marker { display: none; }
 
-  padding-inline: clamp(1rem, 3vw, 2rem);
-}
-
-.section {
-  padding-block: clamp(4rem, 8vw, 7rem);
-}
-
-.section-sm {
-  padding-block: 2rem;
-}
-
-/* ───────────────────────────────────────────────────────────
-   Offer Bar
-─────────────────────────────────────────────────────────── */
-
-.offer-bar {
-  height: 36px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #f59e0b;
-
-  color: #fff;
-
-  font-size: 0.95rem;
-  font-weight: 600;
-
-  text-align: center;
-
-  padding-inline: 1rem;
-}
-
-/* ───────────────────────────────────────────────────────────
-   Header
-─────────────────────────────────────────────────────────── */
-
-.site-header {
+/* ── WhatsApp sticky button ────────────────────────────────── */
+.whatsapp-fab {
   position: fixed;
-
-  top: 36px;
-  left: 0;
-
-  width: 100%;
-
-  z-index: 1000;
-
-  background: rgba(255, 255, 255, 0.92);
-
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid var(--color-border);
-}
-
-.navbar {
-  height: 86px;
-
+  right: 1.25rem;
+  bottom: 1.5rem;
+  z-index: 9999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 2rem;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-
-  gap: 3rem;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-
-  gap: 2rem;
-}
-
-.nav-links a {
-  font-weight: 500;
-
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: var(--color-primary);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-
-  gap: 1rem;
-}
-
-/* ───────────────────────────────────────────────────────────
-   Secondary Nav
-─────────────────────────────────────────────────────────── */
-
-.subnav {
-  width: 100%;
-
-  border-bottom: 1px solid var(--color-border);
-
-  background: #fff;
-}
-
-.subnav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 2rem;
-
-  flex-wrap: wrap;
-
-  padding-block: 1rem;
-}
-
-.subnav-links {
-  display: flex;
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  gap: 1rem;
-}
-
-.subnav-links a {
-  font-size: 0.95rem;
-
-  color: var(--color-text);
-
-  transition: color 0.2s ease;
-}
-
-.subnav-links a:hover {
-  color: var(--color-primary);
-}
-
-/* ───────────────────────────────────────────────────────────
-   Buttons
-─────────────────────────────────────────────────────────── */
-
-.btn-primary {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  gap: 0.5rem;
-
-  background-color: var(--color-primary);
-
-  color: #fff;
-
-  padding: 0.8rem 1.5rem;
-
-  border-radius: 9999px;
-
-  border: none;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.btn-primary:hover {
-  background-color: var(--color-primary-dark);
-
-  transform: translateY(-1px);
-}
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 0.5rem;
-
-  border: 1px solid var(--color-border);
-
-  background: #fff;
-
-  color: var(--color-text);
-
-  padding: 0.8rem 1.2rem;
-
-  border-radius: 9999px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: all 0.2s ease;
-}
-
-.btn-outline:hover {
-  background: var(--color-bg-soft);
-}
-
-.call-btn {
-  display: flex;
-  align-items: center;
-
-  gap: 0.5rem;
-
-  color: var(--color-accent);
-
-  font-weight: 600;
-}
-
-/* ───────────────────────────────────────────────────────────
-   Cards
-─────────────────────────────────────────────────────────── */
-
-.card {
-  background: var(--color-bg);
-
-  border: 1px solid var(--color-border);
-
-  border-radius: 1rem;
-
-  padding: 1.5rem;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-
-  transition: all 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-/* ───────────────────────────────────────────────────────────
-   Forms
-─────────────────────────────────────────────────────────── */
-
-input,
-select,
-textarea {
-  width: 100%;
-
-  padding: 0.75rem 1rem;
-
-  border: 1px solid var(--color-border);
-
-  border-radius: 0.75rem;
-
-  background: var(--color-bg);
-
-  color: var(--color-text);
-
-  outline: none;
-
-  transition: all 0.2s ease;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--color-primary);
-
-  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
-}
-
-/* ───────────────────────────────────────────────────────────
-   Footer
-─────────────────────────────────────────────────────────── */
-
-
-
-/* ───────────────────────────────────────────────────────────
-   Scrollbar
-─────────────────────────────────────────────────────────── */
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg-soft);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-muted);
-}
-
-/* ───────────────────────────────────────────────────────────
-   Selection
-─────────────────────────────────────────────────────────── */
-
-::selection {
-  background-color: var(--color-primary-light);
-
-  color: #fff;
-}
-
-/* ───────────────────────────────────────────────────────────
-   Responsive
-─────────────────────────────────────────────────────────── */
-
-@media (max-width: 1024px) {
-  .navbar {
-    height: 76px;
-  }
-
-  .site-header {
-    top: 36px;
-  }
-
-  .main-content {
-    padding-top: 112px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  
-}
-
-@media (max-width: 768px) {
-  .nav-actions {
-    gap: 0.5rem;
-  }
-
-  .btn-primary,
-  .btn-outline {
-    padding: 0.7rem 1rem;
-
-    font-size: 0.85rem;
-  }
-
-  .offer-bar {
-    font-size: 0.82rem;
-  }
-}
-
-@media (max-width: 640px) {
- 
-
-  .section {
-    padding-block: 3rem;
-  }
-
-  h1 {
-    line-height: 1.05;
-  }
-
-  .navbar {
-    gap: 1rem;
-  }
+.whatsapp-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.55);
 }

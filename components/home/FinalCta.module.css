@@ -1,0 +1,96 @@
+.section {
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.04) 0%, transparent 70%),
+    linear-gradient(160deg, #0e8fa8 0%, #0a7a90 40%, #085f70 100%);
+  padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+/* ── Badge ──────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Heading ────────────────────────────────────────────────── */
+.heading {
+  color: #ffffff;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.accent {
+  color: var(--color-primary);
+}
+
+/* ── Body ───────────────────────────────────────────────────── */
+.body {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  max-width: 520px;
+  margin: 0 auto 2.25rem;
+  line-height: 1.75;
+}
+
+/* ── Button ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 1rem 2.25rem;
+  border-radius: 0.875rem;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  box-shadow: 0 0 0 4px rgba(243, 146, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+  margin-bottom: 1.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px rgba(243, 146, 0, 0.45), 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Trust indicators ───────────────────────────────────────── */
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trust li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.trust li svg {
+  color: rgba(255, 255, 255, 0.55);
+  flex-shrink: 0;
+}

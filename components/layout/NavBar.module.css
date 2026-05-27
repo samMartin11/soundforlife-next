@@ -1,0 +1,299 @@
+.offerBar {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  font-weight: 600;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  line-height: 1.4;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.inner {
+  width: 100%;
+  max-width: 80%;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Desktop nav ─────────────────────────────────────────────── */
+
+.links {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}
+
+/* Each top-level nav item wrapper (positions the dropdown) */
+.navItem {
+  position: relative;
+}
+
+/* Top-level trigger button styled like a link */
+.navTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
+}
+
+.navTrigger:hover,
+.navItem:hover .navTrigger {
+  color: var(--color-primary);
+  background: #fff8ef;
+}
+
+/* Chevron icon */
+.chevron {
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* Dropdown panel */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  animation: fadeDown 0.18s ease forwards;
+  z-index: 100;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownLink {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+
+.dropdownLink:hover {
+  color: var(--color-primary);
+  background: #fff8ef;
+}
+
+/* ── Right-side actions ──────────────────────────────────────── */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.callBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.callBtn:hover {
+  opacity: 0.8;
+}
+
+.callBtn span {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .callBtn span {
+    display: inline;
+  }
+}
+
+/* ── Mobile hamburger ────────────────────────────────────────── */
+
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.65rem;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--color-text);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.hamburger:hover {
+  border-color: var(--color-primary);
+  background: #fff8ef;
+  color: var(--color-primary);
+}
+
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ── Mobile overlay + panel ──────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2000;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(80vw, 320px);
+  height: 100%;
+  background: #fff;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  animation: slideIn 0.28s ease forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  transition: color 0.15s;
+  background: none;
+  border: none;
+  padding: 0;
+  align-self: flex-end;
+}
+
+.closeBtn:hover {
+  color: var(--color-primary);
+}
+
+/* ── Mobile accordion nav ────────────────────────────────────── */
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileNavSection {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobileNavSection:last-child {
+  border-bottom: none;
+}
+
+.mobileNavTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s;
+}
+
+.mobileNavTrigger:hover {
+  color: var(--color-primary);
+}
+
+.mobileSubNav {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+}
+
+.mobileSubLink {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  transition: color 0.15s, background 0.15s;
+}
+
+.mobileSubLink:hover {
+  color: var(--color-primary);
+  background: #fff8ef;
+}

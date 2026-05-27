@@ -1,169 +1,108 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Phone,
-  MessageCircle,
-  MapPin,
-} from "lucide-react";
+import { Phone, MessageCircle, MapPin } from "lucide-react";
 
 export default function Footer() {
-  return (
-    <footer className="bg-[#07142d] text-white">
+    return (
+        <div className="w-full bg-[#0b1a2e] text-white">
 
-      <div className="container py-20">
+            <div style={{ width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "56px 1.5rem" }}>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_0.75fr] gap-6">
 
-          {/* LEFT SECTION */}
-          <div className="flex flex-col gap-5 text-gray-400">
-            <Link href="#" className="hover:text-white transition" >QuickLink1</Link>
-            <Link href="#" className="hover:text-white transition" >QuickLink2</Link>
-            <Link href="#" className="hover:text-white transition" >QuickLink3</Link>
-            {/* Logo */}
-           
+                    {/* LEFT: Brand + Description */}
+                    <div className="flex flex-col gap-5">
 
-              {/* <Image
-                src="/logo.png"
-                alt="sound-for-life-logo"
-                width={140}
-                height={80}
-                priority
-               /> */}
+                        <Image
+                            src="/footer_logo.png"
+                            alt="Sound For Life Hearing Solutions"
+                            width={220}
+                            height={60}
+                            className="object-contain"
+                            style={{ background: "transparent" }}
+                        />
 
-              {/* <div>
-                <h3 className="text-3xl font-bold text-white">
-                  SFL Hearing Solutions
-                </h3>
+                        <p className="text-gray-400 text-sm leading-6 max-w-xs" style={{ color: "white" }}>
+                            India&apos;s largest multi-brand, multi-level chain of hearing aid clinics.
+                            PAN India presence with certified audiologists. 10+ years of giving
+                            people their lives back — one conversation at a time.
+                        </p>
 
-                <p className="text-gray-400 text-sm">
-                  Sunne Ki Azaadi
-                </p>
-              </div> */}
+                    </div>
 
-            
+                    {/* QUICK LINKS */}
+                    <div>
+                        <h4 className="font-bold text-white mb-5" style={{ color: "white", marginBottom: "15px" }}>Quick Links</h4>
+                        <div className="flex flex-col gap-3 text-sm text-gray-400">
+                            <Link href="/" className="hover:text-white transition">Home</Link>
+                            <Link href="/how-it-works" className="hover:text-white transition">How It Works</Link>
+                            <Link href="/hearing-aids" className="hover:text-white transition">Hearing Aids</Link>
+                            <Link href="/hearing-aid-centres" className="hover:text-white transition">Our Centres</Link>
+                            <Link href="/hearing-aid-offers" className="hover:text-white transition">Offers</Link>
+                            <Link href="/testimonials" className="hover:text-white transition">Testimonials</Link>
+                            <Link href="/about" className="hover:text-white transition">About Us</Link>
+                            <Link href="/contact" className="hover:text-white transition">Contact</Link>
+                            <Link href="/faq" className="hover:text-white transition">FAQs</Link>
+                            <Link href="/book-appointment" className="hover:text-white transition">Book Appointment</Link>
+                        </div>
+                    </div>
 
-            {/* Description */}
-            {/* <p className="text-gray-400 leading-8 max-w-md">
-              India's largest multi-brand, multi-level chain of
-              hearing aid clinics. PAN India presence with certified
-              audiologists. 10+ years of giving people their lives
-              back, one conversation at a time.
-            </p> */}
+                    {/* BRANDS */}
+                    <div>
+                        <h4 className="font-bold text-white mb-5" style={{ color: "white", marginBottom: "15px" }}>Brands</h4>
+                        <div className="flex flex-col gap-3 text-sm text-gray-400">
+                            <Link href="/phonak-hearing-aids" className="hover:text-white transition">Phonak</Link>
+                            <Link href="/signia-hearing-aids" className="hover:text-white transition">Signia</Link>
+                            <Link href="/resound-hearing-aids" className="hover:text-white transition">ReSound</Link>
+                            <Link href="/unitron-hearing-aids" className="hover:text-white transition">Unitron</Link>
+                            <Link href="/sonic-hearing-aids" className="hover:text-white transition">Sonic</Link>
+                            <Link href="/am-hearing-aids" className="hover:text-white transition">AM Hearing</Link>
+                        </div>
+                    </div>
 
-          </div>
+                    {/* LEARN */}
+                    <div>
+                        <h4 className="font-bold text-white mb-5" style={{ color: "white", marginBottom: "15px" }}>Learn</h4>
+                        <div className="flex flex-col gap-3 text-sm text-gray-400">
+                            <Link href="/hearing-loss" className="hover:text-white transition">Hearing Loss</Link>
+                            <Link href="/hearing-aid-centre" className="hover:text-white transition">Hearing Aid Centre</Link>
+                            <Link href="/terms-and-conditions" className="hover:text-white transition">Terms &amp; Conditions</Link>
+                            <Link href="/imprint" className="hover:text-white transition">Imprint</Link>
+                        </div>
+                    </div>
 
-          {/* QUICK LINKS */}
-          <div>
+                    {/* CONTACT */}
+                    <div>
+                        <h4 className="text-base font-bold text-white mb-5" style={{ color: "white", marginBottom: "15px" }}>Contact</h4>
+                        <div className="flex flex-col gap-3 text-sm text-gray-400">
+                            <div className="flex items-center gap-2">
+                                <Phone size={16} className="text-gray-300 shrink-0" />
+                                <span>+91 9015401540</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <MessageCircle size={16} className="text-gray-300 shrink-0" />
+                                <span>WhatsApp Support</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <MapPin size={16} className="text-gray-300 shrink-0" />
+                                <span>50+ Clinics PAN India</span>
+                            </div>
+                        </div>
+                    </div>
 
-            <h4 className="text-2xl font-semibold mb-8">
-              Quick Links
-            </h4>
+                </div>
 
-            <div className="flex flex-col gap-5 text-gray-400">
-
-              <Link
-                href="/hearing-test"
-                className="hover:text-white transition"
-              >
-                Free Hearing Test
-              </Link>
-
-              <Link
-                href="/how-it-works"
-                className="hover:text-white transition"
-              >
-                How It Works
-              </Link>
-
-              <Link
-                href="/brands"
-                className="hover:text-white transition"
-              >
-                Our Brands
-              </Link>
-
-              <Link
-                href="/faq"
-                className="hover:text-white transition"
-              >
-                FAQs
-              </Link>
-
-            </div>
-
-          </div>
-
-          {/* CONTACT */}
-          <div>
-
-            <h4 className="text-2xl font-semibold mb-8">
-              Contact
-            </h4>
-
-            <div className="flex flex-col gap-6 text-gray-400">
-
-              <div className="flex items-start gap-4">
-                <Phone
-                  size={20}
-                  className="mt-1 text-gray-300"
-                />
-
-                <span>+91 9015401540</span>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <MessageCircle
-                  size={20}
-                  className="mt-1 text-gray-300"
-                />
-
-                <span>WhatsApp Support</span>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <MapPin
-                  size={20}
-                  className="mt-1 text-gray-300"
-                />
-
-                <span>50+ Clinics PAN India</span>
-              </div>
+                {/* BOTTOM BAR */}
+                <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3" style={{ marginTop: "20px", paddingTop: "20px" }}>
+                    <p className="text-gray-500 text-xs">© 2026 SFL Hearing Solutions. All rights reserved.</p>
+                    <div className="flex items-center gap-5 text-xs text-gray-500">
+                        <Link href="/privacy-policy" className="hover:text-white transition">Privacy</Link>
+                        <Link href="/terms" className="hover:text-white transition">Terms</Link>
+                    </div>
+                </div>
 
             </div>
 
-          </div>
-
         </div>
-
-        {/* BOTTOM BAR */}
-        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-
-          <p className="text-gray-500 text-sm">
-            © 2026 SFL Hearing Solutions. All rights reserved.
-          </p>
-
-          <div className="flex items-center gap-6 text-sm text-gray-500">
-
-            <Link
-              href="/privacy-policy"
-              className="hover:text-white transition"
-            >
-              Privacy
-            </Link>
-
-            <Link
-              href="/terms"
-              className="hover:text-white transition"
-            >
-              Terms
-            </Link>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </footer>
-  );
+    );
 }
