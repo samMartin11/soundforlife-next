@@ -14,12 +14,12 @@ export default function Footer() {
                     <div className="flex flex-col gap-5">
 
                         <Image
-                            src="/footer_logo.png"
+                            src="https://blog.soundforlife.in/wp-content/uploads/2025/04/cropped-SFL-Trademark-Logo-01-1-scaled-1-2048x751.png"
                             alt="Sound For Life Hearing Solutions"
                             width={220}
                             height={60}
                             className="object-contain"
-                            style={{ background: "transparent" }}
+                            style={{ filter: "brightness(0) invert(1)" }}
                         />
 
                         <p className="text-gray-400 text-sm leading-6 max-w-xs" style={{ color: "white" }}>

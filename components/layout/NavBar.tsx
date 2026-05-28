@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, MapPin, Menu, X, ChevronDown } from "lucide-react";
@@ -50,11 +50,28 @@ const NAV_ITEMS = [
   },
 ];
 
+
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const close = () => setOpen(false);
+
+  const closeTimer = useRef<number | null>(null);
+  const handleMouseEnter = (label: string) => {
+    if (closeTimer.current !== null) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setActiveMenu(label);
+  }
+
+  const handleMouseLeave = () => {
+    closeTimer.current = window.setTimeout(() => {
+      setActiveMenu(null);
+    }, 200); // Delay to prevent flickering
+  }
+
 
   return (
     <>
@@ -66,7 +83,7 @@ export default function NavBar() {
         <div className={s.inner}>
           {/* Logo */}
           <Link href="/" onClick={close}>
-            <Image src="https://blog.soundforlife.in/wp-content/uploads/2025/04/cropped-SFL-Trademark-Logo-01-1-scaled-1-2048x751.png" alt="SFL Hearing Solutions" width={160} height={59} priority />
+            <Image style={{ filter: 'brightness(0) invert(1)' }} src="https://blog.soundforlife.in/wp-content/uploads/2025/04/cropped-SFL-Trademark-Logo-01-1-scaled-1-2048x751.png" alt="SFL Hearing Solutions" width={160} height={59} priority />
           </Link>
 
           {/* Desktop nav */}
@@ -75,8 +92,8 @@ export default function NavBar() {
               <div
                 key={item.label}
                 className={s.navItem}
-                onMouseEnter={() => setActiveMenu(item.label)}
-                onMouseLeave={() => setActiveMenu(null)}
+                onMouseEnter={() => handleMouseEnter(item.label)}
+                onMouseLeave={() => handleMouseLeave()}
               >
                 <button type="button" className={s.navTrigger}>
                   {item.label}

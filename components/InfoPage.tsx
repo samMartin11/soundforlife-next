@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { useBookingModal } from "@/components/BookingModal";
 
 export interface FaqItem {
   q: string;
@@ -36,6 +37,8 @@ export default function InfoPage({
 }: InfoPageProps) {
   const [open, setOpen] = useState<number | null>(null);
 
+  const { openModal } = useBookingModal();
+
   return (
     <main style={{ background: "#f8fafc", minHeight: "100vh" }}>
 
@@ -53,8 +56,11 @@ export default function InfoPage({
           <p style={{ color: "#94a3b8", fontSize: "1.05rem", maxWidth: 580, margin: "0 auto 36px" }}>
             {description}
           </p>
-          <Link
-            href={ctaHref}
+          <button
+            onClick={() => openModal({
+              title: title,
+              cta: ctaLabel,
+            })}
             style={{
               display: "inline-block",
               background: "#1a9fa0",
@@ -67,7 +73,7 @@ export default function InfoPage({
             }}
           >
             {ctaLabel}
-          </Link>
+          </button>
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import PageCTA from '@/components/layout/PageCTA'
 import { BookingModalProvider } from '@/components/BookingModal'
+import StickyPageCTA from '@/components/layout/StickyPageCTA'
 
 
 export const metadata: Metadata = {
@@ -32,7 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className='main-content'>
           {children}
         </main>
-        <PageCTA />
+        {/* <PageCTA /> */}
+        <StickyPageCTA/>
         <Footer/>
         <a
           href="https://wa.me/919015401540"

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight } from "lucide-react";
+import s from "./Breadcrumbs.module.css";
 
 const LABELS: Record<string, string> = {
   "hearing-solutions":      "Hearing Solutions",
@@ -46,6 +47,8 @@ export default function Breadcrumbs() {
 
   return (
     <nav aria-label="Breadcrumb" style={{
+      position: "sticky",
+      top: " var(--header-height)",
       padding: "10px 24px",
       background: "var(--color-bg-soft)",
       borderBottom: "1px solid var(--color-border)",

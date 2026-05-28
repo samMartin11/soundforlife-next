@@ -2,10 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useBookingModal,useCallbackModal } from "../BookingModal";
 import { ArrowRight, Repeat2, Tv, Users, VolumeX, Bell, CalendarX } from "lucide-react";
 import styles from "./HearingCheck.module.css";
+import {Calendar} from "lucide-react";
 
 /* ── Data ────────────────────────────────────────────────────── */
+
+//const {openModal} = useBookingModal();
+
 const QUESTIONS = [
   { text: "Do you often ask people to repeat what they said?",                    icon: Repeat2    },
   { text: "Do family members complain that the TV is too loud?",                  icon: Tv         },
@@ -45,6 +50,7 @@ export default function HearingCheck() {
   const [step, setStep]       = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [done, setDone]       = useState(false);
+  const { openModal } = useBookingModal();
 
   const currentAnswer = answers[step];
   const isLast        = step === QUESTIONS.length - 1;
@@ -134,9 +140,11 @@ export default function HearingCheck() {
               <div className={styles.resultIcon}>{result.icon}</div>
               <p className={styles.resultTitle}>{result.title}</p>
               <p className={styles.resultBody}>{result.body}</p>
-              <Link href="/book-appointment" className={styles.resultCta}>
+              <button 
+                className={styles.resultCta}
+                onClick={() => openModal()}>
                 {result.cta} <ArrowRight size={18} />
-              </Link>
+              </button>
               <button
                 type="button"
                 className={styles.retake}

@@ -1,5 +1,5 @@
 .offerBar {
-  background: var(--color-primary);
+  background: #142a54;
   color: #fff;
   font-size: clamp(0.75rem, 1.2vw, 0.875rem);
   font-weight: 600;
@@ -14,10 +14,10 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(20, 42, 84, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .inner {
@@ -45,12 +45,10 @@
   }
 }
 
-/* Each top-level nav item wrapper (positions the dropdown) */
 .navItem {
   position: relative;
 }
 
-/* Top-level trigger button styled like a link */
 .navTrigger {
   display: inline-flex;
   align-items: center;
@@ -58,7 +56,7 @@
   padding: 0.5rem 0.75rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
   background: none;
   border: none;
   border-radius: 0.5rem;
@@ -70,24 +68,25 @@
 .navTrigger:hover,
 .navItem:hover .navTrigger {
   color: var(--color-primary);
-  background: #fff8ef;
+  background: rgba(243, 146, 0, 0.12);
 }
 
-/* Chevron icon */
 .chevron {
   transition: transform 0.2s;
   flex-shrink: 0;
-  opacity: 0.6;
+  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .chevronOpen {
   transform: rotate(180deg);
   transition: transform 0.2s;
   flex-shrink: 0;
-  opacity: 0.6;
+  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Dropdown panel */
+/* Dropdown floats off the dark navbar as its own white layer */
 .dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -96,7 +95,7 @@
   background: #fff;
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -174,18 +173,18 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.65rem;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.06);
   cursor: pointer;
   flex-shrink: 0;
-  color: var(--color-text);
+  color: #fff;
   transition: border-color 0.2s, background 0.2s, color 0.2s;
 }
 
 .hamburger:hover {
   border-color: var(--color-primary);
-  background: #fff8ef;
+  background: rgba(243, 146, 0, 0.12);
   color: var(--color-primary);
 }
 
