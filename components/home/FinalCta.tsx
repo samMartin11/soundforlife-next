@@ -30,7 +30,7 @@ export default function FinalCta() {
 
         <button type="button" className={s.btn} onClick={() => openModal()}>
           <CalendarDays size={20} />
-          Book My FREE Home Trial Now
+          Book Their Free Hearing Test
         </button>
 
         <ul className={s.trust}>

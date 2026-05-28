@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  allowedDevOrigins:['diseased-nonfallacious-junie.ngrok-free.dev']
 };
 
 export default nextConfig;

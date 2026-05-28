@@ -54,9 +54,6 @@ export default function Footer() {
                             <Link href="/phonak-hearing-aids" className="hover:text-white transition">Phonak</Link>
                             <Link href="/signia-hearing-aids" className="hover:text-white transition">Signia</Link>
                             <Link href="/resound-hearing-aids" className="hover:text-white transition">ReSound</Link>
-                            <Link href="/unitron-hearing-aids" className="hover:text-white transition">Unitron</Link>
-                            <Link href="/sonic-hearing-aids" className="hover:text-white transition">Sonic</Link>
-                            <Link href="/am-hearing-aids" className="hover:text-white transition">AM Hearing</Link>
                         </div>
                     </div>
 
