@@ -35,13 +35,13 @@ function getResult(score: number) {
     icon: "⚠️",
     title: "Mild signs of hearing difficulty",
     body: "You may be experiencing early-stage hearing loss. A free home evaluation can give you clarity — no cost, no commitment.",
-    cta: "Book My Free Home Trial",
+    cta: "Book My Free Hearing Test Now",
   };
   return {
     icon: "🔔",
     title: "You may have significant hearing difficulty",
     body: "Your responses indicate notable hearing challenges. Our audiologist can visit your home for a complete assessment and a free 7-day trial — at zero cost.",
-    cta: "Book My Free Home Trial Now",
+    cta: "Book An Audiologist Appointment Now",
   };
 }
 

@@ -1,26 +1,52 @@
+'use client';
 import Link from "next/link";
+import Image from "next/image";
 import s from "./Brands.module.css";
+import { useState } from "react";
+import CompareModal from "./CompareModel";
 
 const BRANDS = [
-  { name: "Signia",  status: "Privileged Partner", href: "/signia-hearing-aids",  color: "#3B8BEB" },
-  { name: "Phonak",  status: "Authorised",          href: "/phonak-hearing-aids",  color: "#F59E0B" },
-  { name: "Unitron", status: "Authorised",          href: "/unitron-hearing-aids", color: "#10B981" },
-  { name: "ReSound", status: "Authorised",          href: "/resound-hearing-aids", color: "#F43F5E" },
-  { name: "Sonic",   status: "Authorised",          href: "/sonic-hearing-aids",   color: "#8B5CF6" },
-  { name: "A&M",     status: "Authorised",          href: "#",                     color: "#6B7280" },
+  { 
+    name: "Signia",  
+    accent: "#E8291C",
+    status: "Privileged Partner", 
+    href: "/signia-hearing-aids",  
+    logo: "/signia-seeklogo.svg", 
+    models: [
+      { name: "Silk Charge&Go IX", type: "Invisible", channels: "48 Channels" },
+      { name: "Pure Charge&Go IX", type: "RIC", channels: "48 Channels" },
+      { name: "Styletto IX", type: "Slim", channels: "48 Channels" }
+    ]
+  },
+  { 
+    name: "Phonak", 
+    accent: "#4A9B37", 
+    status: "Authorised",          
+    href: "/phonak-hearing-aids",  
+    logo: "/Phonak.svg",
+    models: [
+      { name: "Audéo Lumity", type: "Waterproof", channels: "20 Channels" },
+      { name: "Naída Lumity", type: "Power", channels: "20 Channels" },
+      { name: "Virto Paradise", type: "Custom", channels: "20 Channels" }
+    ]
+  },
+  { 
+    name: "ReSound", 
+    accent: "#A50034",
+    status: "Authorised",          
+    href: "/resound-hearing-aids", 
+    logo: "/ReSound-logo.svg",
+    models: [
+      { name: "OMNIA", type: "RIC", channels: "17 Channels" },
+      { name: "Customs by ReSound", type: "Invisible", channels: "17 Channels" },
+      { name: "Enzo Q", type: "Super Power", channels: "17 Channels" }
+    ]
+  },
 ];
 
-function SpeakerIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-      <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-    </svg>
-  );
-}
-
 export default function Brands() {
+
+   const [compareOpen, setCompareOpen] = useState(false);
   return (
     <section id="brands" className={s.section}>
       <div className={s.container}>
@@ -37,16 +63,53 @@ export default function Brands() {
 
         <div className={s.grid}>
           {BRANDS.map((brand) => (
-            <Link key={brand.name} href={brand.href} className={s.brandCard}>
-              <div className={s.iconWrap} style={{ background: brand.color }}>
-                <SpeakerIcon />
+            <div key={brand.name}
+              className={s.brandCard}
+              style={{ "--brand-accent": brand.accent } as React.CSSProperties}>
+
+              <div className={s.cardTop}>
+                <div className={s.iconWrap}>
+                  <Image
+                    src={brand.logo}
+                    alt={`${brand.name} logo`}
+                    width={90}
+                    height={36}
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+                <h3 className={s.brandName}>{brand.name}</h3>
+                <span className={s.brandStatus}>{brand.status}</span>
               </div>
-              <span className={s.brandName}>{brand.name}</span>
-              <span className={s.brandStatus}>{brand.status}</span>
-              <span className={s.viewDetails}>View details &rarr;</span>
-            </Link>
+
+              <div className={s.modelContainer}>
+                <h4 className={s.modelHeading}>Top Models:</h4>
+                <ul className={s.modelList}>
+                  {brand.models.map((model, index) => (
+                    <li key={index} className={s.modelItem}>
+                      <div className={s.modelInfo}>
+                        <span className={s.modelName}>{model.name}</span>
+                        <span className={s.modelChannels}>{model.channels}</span>
+                      </div>
+                      <span className={s.pill}>{model.type}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <Link href={brand.href} className={s.viewDetails}>
+                View all {brand.name} &rarr;
+              </Link>
+              
+            </div>
           ))}
         </div>
+
+        <div className={s.compareAction}>
+          <button className={s.compareBtn} onClick={() => setCompareOpen(true)}>
+            Compare Models
+          </button>
+        </div>
+       <CompareModal open={compareOpen} onClose={() => setCompareOpen(false)} />
 
       </div>
     </section>

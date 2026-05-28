@@ -28,7 +28,7 @@ export default function FinalCta() {
           the first step today — it&apos;s free, it&apos;s at your home, and it changes everything.
         </p>
 
-        <button type="button" className={s.btn} onClick={openModal}>
+        <button type="button" className={s.btn} onClick={() => openModal()}>
           <CalendarDays size={20} />
           Book My FREE Home Trial Now
         </button>

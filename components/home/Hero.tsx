@@ -67,7 +67,7 @@ export default function Hero() {
             </p>
 
             <div className={s.actions}>
-              <button type="button" className={s.btnPrimary} onClick={openModal}>
+              <button type="button" className={s.btnPrimary} onClick={() =>openModal()}>
                 <Calendar size={17} /> Book Home Trial
               </button>
               <Link href="/#hearing-test" className={s.btnOutline}>

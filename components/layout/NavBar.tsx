@@ -76,11 +76,7 @@ export default function NavBar() {
   return (
     <>
       <header className={s.header}>
-        <div className={s.offerBar}>
-          Monsoon Offer: Free Home Trial + ₹5,000 OFF + 3-Year Warranty
-        </div>
-
-        <div className={s.inner}>
+          <div className={s.inner}>
           {/* Logo */}
           <Link href="/" onClick={close}>
             <Image style={{ filter: 'brightness(0) invert(1)' }} src="https://blog.soundforlife.in/wp-content/uploads/2025/04/cropped-SFL-Trademark-Logo-01-1-scaled-1-2048x751.png" alt="SFL Hearing Solutions" width={160} height={59} priority />
@@ -124,10 +120,11 @@ export default function NavBar() {
           {/* Right actions */}
           <div className={s.actions}>
             <Link href="/hearing-aid-centres" className={s.callBtn}>
-              <MapPin size={16} />
+              <MapPin size={20} />
+              <span>Find Centre</span>
             </Link>
             <a href="tel:+919015401540" className={s.callBtn}>
-              <Phone size={16} />
+              <Phone size={20} />
               <span>Call</span>
             </a>
 

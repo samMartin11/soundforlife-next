@@ -3,7 +3,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
-import PageCTA from '@/components/layout/PageCTA'
+// import PageCTA from '@/components/layout/PageCTA'
 import { BookingModalProvider } from '@/components/BookingModal'
 import StickyPageCTA from '@/components/layout/StickyPageCTA'
 

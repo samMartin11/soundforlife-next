@@ -246,9 +246,9 @@ export function BookingModalProvider({ children }: { children: React.ReactNode }
 /* ── Modal UI ────────────────────────────────────────────────── */
 function BookingModal({
   onClose,
-  title    = "Book Your FREE Home Trial",
+  title    = "Book Your FREE Hearing Test Now",
   subtitle = "An audiologist will call you within 30 minutes to schedule.",
-  cta      = "Book Free Trial",
+  cta      = "Book An Appointment",
 }: {
   onClose:   () => void;
   title?:    string;

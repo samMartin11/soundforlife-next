@@ -43,7 +43,7 @@ export default function Footer() {
                             <Link href="/about" className="hover:text-white transition">About Us</Link>
                             <Link href="/contact" className="hover:text-white transition">Contact</Link>
                             <Link href="/faq" className="hover:text-white transition">FAQs</Link>
-                            <Link href="/book-appointment" className="hover:text-white transition">Book Appointment</Link>
+                            <Link href="https://shop.soundforlife.in/" className="hover:text-white transition">Shop @ SFL</Link>
                         </div>
                     </div>
 

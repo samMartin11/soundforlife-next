@@ -19,7 +19,7 @@ export default function ClientResults() {
           {/* Image */}
           <div className={s.imageWrapper}>
             <Image
-              src="https://picsum.photos/seed/happyelderly/600/450"
+              src="/Pankaj.jpeg"
               alt="Happy client after hearing aid trial"
               width={600}
               height={450}
