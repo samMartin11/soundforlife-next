@@ -36,11 +36,32 @@ export default function InfoPage({
   ctaHref = "/book-appointment",
 }: InfoPageProps) {
   const [open, setOpen] = useState<number | null>(null);
-
   const { openModal } = useBookingModal();
+
+  // 1. Generate the JSON-LD schema if FAQs exist
+  const jsonLd = faqs && faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q, // Mapped to your 'q' property
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a, // Mapped to your 'a' property
+      },
+    })),
+  } : null;
 
   return (
     <main style={{ background: "#f8fafc", minHeight: "100vh" }}>
+      
+      {/* 2. Inject the Schema into the DOM invisibly */}
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
 
       {/* Hero */}
       <section style={{ background: "linear-gradient(135deg, #0b1a2e 0%, #0e2a4a 100%)", padding: "80px 1.5rem 64px" }}>
@@ -70,6 +91,8 @@ export default function InfoPage({
               fontWeight: 600,
               fontSize: "0.95rem",
               textDecoration: "none",
+              border: "none",
+              cursor: "pointer"
             }}
           >
             {ctaLabel}
@@ -117,59 +140,61 @@ export default function InfoPage({
         )}
 
         {/* FAQ */}
-        <section>
-          <h2 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#0b1a2e", marginBottom: 24 }}>
-            Frequently Asked Questions
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {faqs.map((faq, i) => (
-              <div
-                key={i}
-                style={{
-                  background: "#fff",
-                  borderRadius: 10,
-                  boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
-                  overflow: "hidden",
-                }}
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpen(open === i ? null : i)}
+        {faqs && faqs.length > 0 && (
+          <section>
+            <h2 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#0b1a2e", marginBottom: 24 }}>
+              Frequently Asked Questions
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {faqs.map((faq, i) => (
+                <div
+                  key={i}
                   style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: 12,
-                    padding: "18px 22px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    textAlign: "left",
+                    background: "#fff",
+                    borderRadius: 10,
+                    boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+                    overflow: "hidden",
                   }}
                 >
-                  <span style={{ color: "#1e293b", fontWeight: 600, fontSize: "0.92rem", lineHeight: 1.45 }}>
-                    {faq.q}
-                  </span>
-                  <ChevronDown
-                    size={18}
-                    color="#1a9fa0"
+                  <button
+                    type="button"
+                    onClick={() => setOpen(open === i ? null : i)}
                     style={{
-                      flexShrink: 0,
-                      transform: open === i ? "rotate(180deg)" : "rotate(0deg)",
-                      transition: "transform 0.2s",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: 12,
+                      padding: "18px 22px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      textAlign: "left",
                     }}
-                  />
-                </button>
-                {open === i && (
-                  <div style={{ padding: "0 22px 18px", color: "#475569", fontSize: "0.9rem", lineHeight: 1.7 }}>
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
+                  >
+                    <span style={{ color: "#1e293b", fontWeight: 600, fontSize: "0.92rem", lineHeight: 1.45 }}>
+                      {faq.q}
+                    </span>
+                    <ChevronDown
+                      size={18}
+                      color="#1a9fa0"
+                      style={{
+                        flexShrink: 0,
+                        transform: open === i ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.2s",
+                      }}
+                    />
+                  </button>
+                  {open === i && (
+                    <div style={{ padding: "0 22px 18px", color: "#475569", fontSize: "0.9rem", lineHeight: 1.7 }}>
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
       </div>
     </main>
