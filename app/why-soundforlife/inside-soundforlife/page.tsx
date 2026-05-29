@@ -220,7 +220,7 @@ export default function InsideSoundForLifePage() {
             color: "#fff",
           }}
         >
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: 12 }}>Need Our Media Kit?</h2>
+          <h2 style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, marginBottom: 12 }}>Need Our Media Kit?</h2>
           <p style={{ color: "#94a3b8", marginBottom: 28, maxWidth: 480, margin: "0 auto 28px" }}>
             High-res logos, brand guidelines, leadership photos, and fact sheets — available on request.
           </p>
