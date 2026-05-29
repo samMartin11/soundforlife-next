@@ -1,0 +1,393 @@
+.book-page-wrapper {
+            min-height: calc(100vh - 72px);
+            background-color: var(--color-bg-soft);
+            padding: 3rem 1.25rem;
+            font-family: "Inter", "Segoe UI", sans-serif;
+        }
+ 
+        .book-page-inner {
+          max-width: 1040px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2.5rem;
+          align-items: start;
+        }
+ 
+        @media (max-width: 768px) {
+          .book-page-inner {
+            grid-template-columns: 1fr;
+          }
+          .book-aside {
+            display: none; /* hide on mobile — keep the form the hero */
+          }
+        }
+ 
+        /* ── Aside ── */
+        .book-aside {
+          padding: 2rem 0;
+          position: sticky;
+          top: calc(72px + 2rem);
+        }
+ 
+        .book-aside-badge {
+          display: inline-block;
+          background: var(--color-primary);
+          color: #fff;
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          padding: 0.25rem 0.75rem;
+          border-radius: 9999px;
+          margin-bottom: 1.25rem;
+          text-transform: uppercase;
+        }
+ 
+        .book-aside-heading {
+          font-size: clamp(1.75rem, 3vw, 2.4rem);
+          font-weight: 800;
+          color: var(--color-navy);
+          line-height: 1.15;
+          letter-spacing: -0.025em;
+          margin-bottom: 1rem;
+        }
+ 
+        .book-aside-accent {
+          color: var(--color-primary);
+        }
+ 
+        .book-aside-sub {
+          color: var(--color-muted);
+          font-size: 0.95rem;
+          line-height: 1.7;
+          margin-bottom: 2rem;
+        }
+ 
+        .book-benefit-list {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.875rem;
+          margin-bottom: 2rem;
+        }
+ 
+        .book-benefit-item {
+          display: flex;
+          align-items: center;
+          gap: 0.625rem;
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: var(--color-text);
+        }
+ 
+        .book-benefit-icon {
+          color: var(--color-primary);
+          flex-shrink: 0;
+        }
+ 
+        .book-aside-callout {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          color: var(--color-muted);
+          border-top: 1px solid var(--color-border);
+          padding-top: 1.25rem;
+        }
+ 
+        .book-aside-callout strong {
+          color: var(--color-navy);
+        }
+ 
+        /* ── Card ── */
+        /* .book-form-col {} */
+ 
+        .book-card {
+          background: #fff;
+          border: 1px solid var(--color-border);
+          border-radius: 16px;
+          box-shadow: var(--shadow-float);
+          overflow: hidden;
+        }
+ 
+        .book-bonus-bar {
+          background: var(--color-accent-soft);
+          border-bottom: 1px solid #fde8c0;
+          padding: 0.75rem 1.75rem;
+          font-size: 0.82rem;
+          color: #92560a;
+          text-align: center;
+        }
+ 
+        .book-card-header {
+          padding: 1.75rem 1.75rem 0;
+          text-align: center;
+        }
+ 
+        .book-card-title {
+          font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+          font-weight: 800;
+          color: var(--color-navy);
+          letter-spacing: -0.02em;
+          margin-bottom: 0.4rem;
+        }
+ 
+        .book-card-subtitle {
+          font-size: 0.88rem;
+          color: var(--color-muted);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.4rem;
+          flex-wrap: wrap;
+        }
+ 
+        /* ── Form ── */
+        .book-form {
+          padding: 1.5rem 1.75rem 1.75rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+        }
+ 
+        .book-field {
+          display: flex;
+          flex-direction: column;
+          gap: 0.4rem;
+        }
+ 
+        .book-label {
+          font-size: 0.82rem;
+          font-weight: 600;
+          color: var(--color-text);
+          letter-spacing: 0.01em;
+        }
+ 
+        .book-label--center {
+          text-align: center;
+        }
+ 
+        .book-required {
+          color: #e53935;
+        }
+ 
+        .book-optional {
+          font-weight: 400;
+          color: var(--color-muted);
+        }
+ 
+        .book-input {
+          width: 100%;
+          padding: 0.7rem 1rem;
+          border: 1.5px solid var(--color-border);
+          border-radius: 8px;
+          font-size: 0.9rem;
+          font-family: inherit;
+          color: var(--color-text);
+          background: var(--color-bg);
+          transition: border-color 0.18s, box-shadow 0.18s;
+          outline: none;
+          appearance: none;
+        }
+ 
+        .book-input::placeholder {
+          color: #c4bdb5;
+        }
+ 
+        .book-input:focus {
+          border-color: var(--color-primary);
+          box-shadow: 0 0 0 3px rgba(243, 146, 0, 0.14);
+        }
+ 
+        .book-input--otp {
+          text-align: center;
+          font-size: 1.75rem;
+          font-weight: 700;
+          letter-spacing: 0.4em;
+          padding: 0.875rem;
+          color: var(--color-navy);
+        }
+ 
+        .book-input-prefix-wrap {
+          position: relative;
+        }
+ 
+        .book-input-prefix {
+          position: absolute;
+          left: 0.875rem;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 0.88rem;
+          font-weight: 600;
+          color: var(--color-muted);
+          pointer-events: none;
+        }
+ 
+        .book-input--prefixed {
+          padding-left: 2.75rem;
+        }
+ 
+        /* Pill group */
+        .book-pill-group {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+ 
+        .book-pill {
+          padding: 0.4rem 1rem;
+          border-radius: 9999px;
+          border: 1.5px solid var(--color-border);
+          background: #fff;
+          font-size: 0.82rem;
+          font-weight: 500;
+          color: var(--color-muted);
+          cursor: pointer;
+          transition: all 0.15s;
+          font-family: inherit;
+        }
+ 
+        .book-pill:hover {
+          border-color: var(--color-primary-light);
+          color: var(--color-primary-dark);
+        }
+ 
+        .book-pill--active {
+          background: var(--color-navy);
+          border-color: var(--color-navy);
+          color: #fff;
+          font-weight: 600;
+        }
+ 
+        /* Primary CTA button */
+        .book-btn-primary {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.875rem 1.5rem;
+          background: var(--color-primary);
+          color: #fff;
+          font-size: 0.95rem;
+          font-weight: 700;
+          font-family: inherit;
+          border: none;
+          border-radius: 9px;
+          cursor: pointer;
+          letter-spacing: 0.01em;
+          transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+          box-shadow: 0 4px 16px rgba(243, 146, 0, 0.35);
+          margin-top: 0.25rem;
+        }
+ 
+        .book-btn-primary:hover {
+          background: var(--color-primary-dark);
+          transform: translateY(-1px);
+          box-shadow: 0 6px 22px rgba(243, 146, 0, 0.45);
+        }
+ 
+        .book-btn-primary:active {
+          transform: translateY(0);
+        }
+ 
+        /* Privacy note */
+        .book-privacy-note {
+          text-align: center;
+          font-size: 0.72rem;
+          color: #b0a99f;
+          padding: 0 1.75rem 1.5rem;
+          line-height: 1.6;
+        }
+ 
+        /* OTP icon */
+        .book-otp-icon-wrap {
+          width: 52px;
+          height: 52px;
+          border-radius: 50%;
+          background: var(--color-accent-soft);
+          border: 1px solid #fde8c0;
+          color: var(--color-primary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1rem;
+        }
+ 
+        /* Edit button */
+        .book-edit-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.2rem;
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: var(--color-primary);
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: inherit;
+          padding: 0;
+        }
+ 
+        .book-edit-btn:hover {
+          color: var(--color-primary-dark);
+          text-decoration: underline;
+        }
+ 
+        .book-resend-text {
+          text-align: center;
+          font-size: 0.82rem;
+          color: var(--color-muted);
+        }
+ 
+        .book-link-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-family: inherit;
+          font-size: inherit;
+          color: var(--color-primary);
+          font-weight: 600;
+          padding: 0;
+        }
+ 
+        .book-link-btn:hover {
+          color: var(--color-primary-dark);
+          text-decoration: underline;
+        }
+ 
+        /* Success state */
+        .book-success {
+          padding: 3rem 2rem;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+ 
+        .book-success-icon-wrap {
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
+          color: #22c55e;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+ 
+        .book-success-heading {
+          font-size: 1.6rem;
+          font-weight: 800;
+          color: var(--color-navy);
+          letter-spacing: -0.02em;
+        }
+ 
+        .book-success-body {
+          font-size: 0.92rem;
+          color: var(--color-muted);
+          max-width: 320px;
+          line-height: 1.65;
+        }

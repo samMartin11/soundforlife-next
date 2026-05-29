@@ -48,9 +48,16 @@ export default function Hero() {
           {/* ── Left: copy ── */}
           <div className={s.content}>
 
-            <span className={s.badge}>
+            {/* <span className={s.badge}>
               <Star size={13} /> India&apos;s #1 Multi-Brand Hearing Network · 10+ Years
-            </span>
+            </span> */}
+            <div className={s.badgeWrapper}>
+              <span className={s.badgePulse} />
+              <span className={s.badgeIcon}><Star size={12} fill="#f0a500" color="#f0a500" /></span>
+              <span className={s.badgeText}>India&apos;s #1 Multi-Brand Hearing Network</span>
+              <span className={s.badgeDivider} />
+              <span className={s.badgeHighlight}>10+ Years</span>
+            </div>
 
             <h1 className={s.headline}>
               Hear your <span className={s.highlightTeal}>grandchild&apos;s</span>
@@ -96,6 +103,7 @@ export default function Hero() {
               <span className={s.ratingLabel}>Trusted by <strong>50,000+</strong> happy hearers</span>
             </div>
           </div>
+          
 
           {/* ── Right: carousel ── */}
           <div className={s.imageWrapper}>

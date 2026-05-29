@@ -17,7 +17,7 @@ export default function HomePage() {
       <Journey />
       <Brands />
       <ClientResults />
-      <Testimonials />
+      <Testimonials/>
       <Faq />
       <FinalCta />
     </div>
