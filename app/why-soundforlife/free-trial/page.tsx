@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <InfoPage
       tag="Why SoundForLife"
-      title="14-Day Free Hearing Aid Trial — Zero Obligation"
+      title="3-Day Free Hearing Aid Trial — Zero Obligation"
       description="Test the latest hearing aids in your real world — restaurants, markets, family gatherings — before you commit. Completely free, completely risk-free."
       ctaLabel="Start Your Free Trial"
       faqs={[

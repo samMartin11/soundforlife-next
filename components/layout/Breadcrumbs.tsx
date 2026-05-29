@@ -29,6 +29,8 @@ const LABELS: Record<string, string> = {
   "hearing-aid-centres":    "Hearing Aid Centres",
 };
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.soundforlife.in";
+
 export default function Breadcrumbs() {
   const pathname = usePathname();
 
@@ -45,6 +47,18 @@ export default function Breadcrumbs() {
     })),
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": crumb.label,
+      // Google prefers absolute URLs for breadcrumb schema
+      "item": crumb.href === "/" ? SITE_URL : `${SITE_URL}${crumb.href}`,
+    })),
+  };
+  
   return (
     <nav aria-label="Breadcrumb" style={{
       position: "sticky",
@@ -53,6 +67,10 @@ export default function Breadcrumbs() {
       background: "var(--color-bg-soft)",
       borderBottom: "1px solid var(--color-border)",
     }}>
+      {<script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />}
       <ol style={{
         display: "flex",
         flexWrap: "wrap",
